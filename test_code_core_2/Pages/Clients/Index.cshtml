@@ -1,0 +1,43 @@
+﻿@page
+@model test_code_core_2.Pages.Clients.IndexModel
+@{
+}
+
+
+<br>
+<h1>List of Clients</h1>
+
+<a class="btn btn-primary btn-sm" href='/Clients/Created'>Created New Client</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+
+            <th>Created_At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listclient)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="/Clients/EditClient?id=@item.id">Edit Client</a>
+                        <a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.id">Delete Client</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
